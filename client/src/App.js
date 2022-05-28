@@ -1,11 +1,13 @@
+import { Provider } from 'react-redux';
 import './App.css';
+import { AppRouter } from './routes/AppRouter';
+import { store } from './redux/store';
 
-function App() {
+
+export const App = () => {
   return (
-    <div className="App">
-      <h1>Henry Food</h1>
-    </div>
+    <Provider store={store}>
+      <AppRouter />
+    </Provider>
   );
 }
-
-export default App;

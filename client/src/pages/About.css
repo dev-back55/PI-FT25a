@@ -1,0 +1,38 @@
+.container-total {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.container-acercade {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    height: 600px;
+    background: url('../img/puppy-1047521_1920.jpg') no-repeat center center/cover;
+    padding: 10px;
+    align-content: center;
+    align-content: center;
+    margin-top: 100px;
+}
+
+.box-texto {
+    display: flex;
+    background-color: cornflowerblue;
+    text-align: center;
+    width: 600px;
+    height: 600px;
+    padding: 10px;
+    align-items: center;
+    margin-top: 100px;
+    font-size: 22px;
+}
+
+.btn-home {
+    display: flex;
+    align-items: flex-start;
+    align-content: flex-start;
+}

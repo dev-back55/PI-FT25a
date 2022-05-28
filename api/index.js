@@ -17,12 +17,19 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+//? HORACIO 
+
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
+const initLoader = require('./src/tools/initLoader');
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
-  server.listen(3001, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+conn.sync({ force: false }).then(() => {
+  const PORT = process.env.PORT || 3001;
+  server.listen(PORT, async () => {
+    console.log(`%s Listening at PORT ${PORT}`);
+    await initLoader();
+    console.log('Tipos de Dietas Cargados...');    
   });
 });

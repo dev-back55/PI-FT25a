@@ -1,0 +1,6 @@
+.container-dietstypes {
+    display: inline-flex;
+    justify-content: flex-end;
+    margin-left: 10px;
+       
+}

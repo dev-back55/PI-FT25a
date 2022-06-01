@@ -27,7 +27,7 @@
   margin: 5px;
   border-radius: 6px;
   overflow: hidden;
-  background:#fff;
+  background:rgb(236, 198, 198);
   box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
   transition: all 400ms ease-out;
   cursor: default;
@@ -46,12 +46,12 @@ padding: 1px;
 .card-home .contenido-card h4{
   margin-bottom: 0px;
   font-size: 16px;
-  color: black;
+  color: rgb(193, 55, 55);
   
 }
 .card-home .contenido-card h5{
 margin-bottom: 5px;
-color: black;
+color: rgb(30, 89, 184);
 font-size: 14px;
 }
 
@@ -65,9 +65,8 @@ font-size: 14px;
 }
 
 .titulo-fav {
-  display:flex;
-  flex-direction: row;
-  justify-content: center;
+  text-align: center;
+  
   padding-top: 2px;
   padding-bottom: 1px;
 }
@@ -86,12 +85,12 @@ font-size: 14px;
   .temps {
     display:inline-flex;
     margin-top: 5px;
-    padding-left: 2px;
+    padding-left: 5px;
   }
 
   span {
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
     font: bold;
     font-style: italic;
     padding-left: 2px;

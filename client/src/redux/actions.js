@@ -10,6 +10,7 @@ export const GET_DIETS = 'GET_DIETS';
 export const CLEAR_RECIP = 'CLEAR_RECIP';
 export const GET_RECIPES_DETAIL = 'GET_RECIPES_DETAIL';
 export const POST_CREATE_RECIPE = 'POST_CREATE_RECIPE';
+export const GET_RECIPE_BKP = 'GET_RECIPE_BKP';
 
 const urlrecipes = "http://localhost:3001/recipes";
 const urldiets = "http://localhost:3001/types";
@@ -30,6 +31,13 @@ export function getDbDiets(){
     }
 }
 
+export function getRecipesBkp(allrecipesBkp){
+  return {
+    type: GET_RECIPE_BKP,
+    payload: allrecipesBkp
+  }
+}
+
 export function selectPag(payload){
     return {
       type: SELECTPAG,
@@ -39,16 +47,14 @@ export function selectPag(payload){
 
 export function getRecipeName(name) {
     return async function (dispatch) {
-      const response = await axios.get(`${urlrecipes}?name=${name}`);
-      console.log(response.data)
-      if(!response.data.length){
-          return alert('NOT FOUND...')
-      }
-      return dispatch({
-        type: "GET_RECIPE_NAME",
-        payload: response.data,
-      });
-    };
+      return await fetch(`${urlrecipes}?name=${name}`)
+        .then(response => response.json())
+        .then(json => {
+          console.log('RESPUESTA DE JSON...', json)  
+          dispatch({ type: "GET_RECIPE_NAME", payload: json })
+        })
+        .catch(err => (alert('Search Not Found...!!')))
+    }
 }
 
 export function filterId(recipes, value){
@@ -171,9 +177,9 @@ export function getRecipeDetail(id) {
 
 export function postCreateRecipe (recipe){
   return async function (dispatch){
-    console.log(recipe, 'antes de axios post')
     const response = await axios.post("http://localhost:3001/recipe/", recipe);
-    console.log(response, ' dsp de axios post')
-    dispatch({ type: "POST_CREATE_RECIPE", payload: recipe });
+    const datarecipe = await response.data
+    console.log(datarecipe, ' dsp de axios post')
+    dispatch({ type: "POST_CREATE_RECIPE", payload: datarecipe });
   }
 }

@@ -6,11 +6,13 @@
     height: 100vh;
     background-size: cover;
     background-position: center;
-
+	justify-content: center;
+	align-items: center;
 }
 
 .titulo-landing {
-    color: aliceblue;
+    color: rgb(12, 127, 227);
+	background-color: rgba(105, 228, 218, 0.411);
     font-size: 25px;
     text-shadow: 5px;
     margin-top: 20px;
@@ -20,11 +22,7 @@
 }
 
 .btn-ingresar {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	justify-items: last baseline;
+	text-align: center;
 }
 
 .myButton {

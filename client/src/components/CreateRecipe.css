@@ -1,8 +1,18 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;	
+}
+
 .container-form {
 	max-width: 800px;
 	width: 90%;
-	margin: auto;
+	margin-top: 150px;
+	margin-left: 550px;
 	padding: 40px;
+	background-color: rgba(123, 165, 242, 0.685);
+	border: 2px solid #000;
+	border-radius: 6px;
 }
 
 .form {
@@ -104,4 +114,8 @@
 .error {
 	color: red;
 	border: solid red;
+}
+
+h1 {
+	margin-bottom: 15px;
 }

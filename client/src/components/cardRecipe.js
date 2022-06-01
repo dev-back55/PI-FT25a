@@ -26,20 +26,19 @@ export const CardRecipe = (props) => {
           </div>
 
           <div className="contenido-card">
-            <div className="titulo-fav">
-              <h4>{title}</h4>
-            </div>
-            <div className="peso">
-              <h5>Health Score: </h5>
-              <div className="weight">
-                <span>{healthScore}</span>
+              <div className="titulo-fav">
+                <h4>{title}</h4>
               </div>
-            </div>
-            <div className="temps">
-              <h5>Diet Type:</h5>
-              <span>{diets.toString().replaceAll(',', ', ')}</span>
-              
-            </div>
+              <div className="peso">
+                <h5>Health Score: </h5>
+                <div className="weight">
+                  <span>{healthScore}</span>
+                </div>
+              </div>
+              <div className="temps">
+                <h5>Diet Type:</h5>
+                <span>{diets.toString()}</span>
+              </div>
           </div>          
         </div>
       </div>

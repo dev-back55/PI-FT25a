@@ -9,14 +9,15 @@ export function validate(recipe){
 
   let errors = {};
 
-  if(!recipe.title) {
-    errors.title = 'Title of recipe required'
+  if(recipe.title.length === 0) {
+    errors.title = 'Name of recipe required'
   }
 
-  if (!/^[a-z ,.'-]+$/i.test(recipe.title)) {
-    errors.title = 'Title invalid, not acept number';
-  } 
-
+  // if (!/^[a-zñ]+[a-zñ\s]+[a-zñ]$/i.test(recipe.title)) {
+  //   errors.title = 'Title invalid, not acept number';
+  // } 
+  ///^[a-z ,.'-]+$/
+  
   if(!recipe.aggregateLikes){
     errors.aggregateLikes = 'You must enter a value'
   }
@@ -25,7 +26,7 @@ export function validate(recipe){
      errors.healthScore = 'You must enter a value'
   }
 
-  if(!recipe.summary){
+  if(recipe.summary.length === 0){
     errors.summary = 'You must enter a value'
   }
   
@@ -83,7 +84,7 @@ export const CreateRecipe = () => {
   function handleSubmit(e){
     e.preventDefault();
     if(recipe.title !== '' || recipe.summary !== '' || recipe.healthScore !== 0){
-      console.log(recipe, ' en Submit')
+      
         dispatch(postCreateRecipe(recipe))
         alert("Recipe Created successfully...!!")
         setRecipe({
@@ -108,10 +109,9 @@ export const CreateRecipe = () => {
                 <label className='form-label'>Title:</label>
                 <input className='form-input'
                    type="text"
-                   placeholder='title'
+                   placeholder='enter name of recipe'
                    value={recipe.title}
                    name="title"
-                   
                    onChange={(e) => handleChange(e)}
                  />
                  { errors.title && 
@@ -152,6 +152,9 @@ export const CreateRecipe = () => {
                    name="summary"
                    onChange={(e) => handleChange(e)}
                    />
+                   {errors.summary && (
+                   <p className='error'>{errors.summary}</p>
+                    )}
                    
             </div>
             <div>

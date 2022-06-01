@@ -21,7 +21,7 @@ const { API_KEY10 } = process.env;
 router.get('/', async (req, res, next) => {
     try {
       const recipeApi = await axios.get(
-        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY2}&addRecipeInformation=true&number=100`
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY5}&addRecipeInformation=true&number=100`
       );
       const recipeApiData = recipeApi.data?.results.map((e) => {
         return {
@@ -54,7 +54,7 @@ router.get('/', async (req, res, next) => {
            recipesByName = infoTotal.filter((e) =>
            e.title.toLowerCase().includes(name.toLowerCase()))
 
-            return recipesByName.length?res.status(200).json(recipesByName):res.status(404).json({error: 'Search by title NOT FOUND...!'})
+            return recipesByName.length?res.status(200).json(recipesByName):res.status(404).json()
           }
 
       return res.status(200).json(infoTotal);
@@ -88,33 +88,6 @@ router.get('/', async (req, res, next) => {
     return infoTotal;
   };
   
-
-  //? busca x nombre
-  // router.get("/", async (req, res) => {
-  //   try {
-  //     const { name } = req.query;
-  //     // console.log("NAMEEE", name)
-  //     // console.log("RECETAS TOTALES",totalRecipes);
-  //     let totalRecipes = await getAllRecipes();
-  //     if (name) {
-  //       let recipesByName = await totalRecipes.filter((e) =>
-  //         e.title.toLowerCase().includes(name.toLowerCase())
-  //       );
-        
-  //       recipesByName.length
-  //         ? res.status(200).json(recipesByName)
-  //         : res.status(400).json({error: 'SEARCH BY TITLE NOT FOUND...'})
-  //     } else {
-  //       res.status(200).json(totalRecipes);
-        
-  //     }
-  //   } catch (error) {
-  //     res.status(400).send("SEARCH BY TITLE NOT FOUND...");
-      
-  //   }
-  // });
-  
-
   //? Trae recipes x id 
   router.get('/:id', async function(req, res){
    try { 
@@ -123,7 +96,7 @@ router.get('/', async (req, res, next) => {
     if(id.length < 10 && typeof parseInt(id) === 'number') {
         //? Busca en API   
 
-        const response = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY2}`)
+        const response = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY5}`)
 
         const recipe = await response.data
         

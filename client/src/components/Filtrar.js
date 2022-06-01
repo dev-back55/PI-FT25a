@@ -10,10 +10,7 @@ const Filtrar = () => {
     
 
     function handleFilterId(e){
-      console.log(e.target.value, 'handle filtrar ID')
-
       e.preventDefault()
-      
       dispatch(filterId(allrecipesBkp, e.target.value))
     }
 

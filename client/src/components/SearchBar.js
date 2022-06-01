@@ -30,6 +30,7 @@ function handleSubmit(e){
     
     <div>
       <input
+        autoComplete='off'
         name="name"
         value={name}
         type= 'text'

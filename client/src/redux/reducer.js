@@ -1,4 +1,4 @@
-import { CLEAR_RECIP, FILTEREDBYDIETS, FILTERID, GET_DIETS, GET_RECIPES, GET_RECIPES_DETAIL, GET_RECIPE_NAME, ORDERBYNAME, POST_CREATE_RECIPE, SELECTPAG } from './actions'
+import { CLEAR_RECIP, FILTEREDBYDIETS, FILTERID, GET_DIETS, GET_RECIPES, GET_RECIPES_DETAIL, GET_RECIPE_BKP, GET_RECIPE_NAME, ORDERBYNAME, POST_CREATE_RECIPE, SELECTPAG } from './actions'
 
 const initialState = {
     allrecipes : [],
@@ -46,6 +46,8 @@ export function reducer(state=initialState, {type, payload}) {
                 allrecipesBkp: [...state.allrecipesBkp, payload],
                 allrecipesDB: [...state.allrecipesDB, payload]
             }
+        case GET_RECIPE_BKP:
+            return {...state, allrecipes: payload}
 
         default: return state
     }

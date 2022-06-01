@@ -12,7 +12,7 @@
     align-items: center;
     width: 800px;
     height: 600px;
-    background: url('../img/puppy-1047521_1920.jpg') no-repeat center center/cover;
+    background: url('../img/Best-Vegan-Food.png') no-repeat center center/cover;
     padding: 10px;
     align-content: center;
     align-content: center;
@@ -20,7 +20,7 @@
 }
 
 .box-texto {
-    display: flex;
+    
     background-color: cornflowerblue;
     text-align: center;
     width: 600px;
@@ -28,11 +28,11 @@
     padding: 10px;
     align-items: center;
     margin-top: 100px;
-    font-size: 22px;
+    font-size: 3rem;
 }
 
-.btn-home {
+.container-total {
     display: flex;
-    align-items: flex-start;
-    align-content: flex-start;
+    align-items: center;
+    align-content: center;
 }

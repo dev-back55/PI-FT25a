@@ -1,16 +1,16 @@
 const axios = require("axios");
-const { API_KEY2 } = process.env;
+const { API_KEY5 } = process.env;
 const { Diet } = require('../db');
 
 module.exports = async function initLoader(){
   try{  
     const apiInfo = await axios.get(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY2}&addRecipeInformation=true&number=100`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY5}&addRecipeInformation=true&number=100`
     );
     const diets = await apiInfo.data.results.map((e) => {
       return e.diets;
     });
-    let result = diets.flat().concat('VEGETARIAN');
+    let result = diets.flat().concat('vegetarian');
     result = new Set(result);
     result = [...result];
          
